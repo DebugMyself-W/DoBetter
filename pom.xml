@@ -11,6 +11,7 @@
     <modules>
         <module>juc</module>
         <module>shiro</module>
+        <module>LeetCode</module>
     </modules>
 
     <properties>
