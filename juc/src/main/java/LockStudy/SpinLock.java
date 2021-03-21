@@ -3,6 +3,9 @@ package LockStudy;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * 自旋锁
+ */
 public class SpinLock {
 
     AtomicReference atomicReference = new AtomicReference();

@@ -2,6 +2,10 @@ package LockStudy;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 1、使用 jps -l 定位进程号
+ * 2、使用 jstack 进程号 找到死锁问题。堆栈
+ */
 public class DeadLockDemo {
 
     public static void main(String[] args) {
