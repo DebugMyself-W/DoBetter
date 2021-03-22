@@ -13,6 +13,7 @@
         <module>shiro</module>
         <module>LeetCode</module>
         <module>workDailyDemo</module>
+        <module>system</module>
     </modules>
 
     <properties>
