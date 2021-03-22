@@ -1,2 +1,5 @@
-# Project exclude paths
-/juc/target/
+/target/
+/.idea/
+*.iml
+rebel.xml
+*.log

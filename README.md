@@ -1,5 +1,5 @@
 ### TODAY I AM A LITTLE BETTER THAN YESTERDAY
-java基础复习。  
+[java基础复习](https://github.com/Trevis7619/windGone)  
 - [juc 学习](https://www.bilibili.com/video/BV1B7411L7tE)  
 > 2021-03-07 10:55~15:30 P1-P8    
   2021-03-08 15:53~16.51 P9-P10  
