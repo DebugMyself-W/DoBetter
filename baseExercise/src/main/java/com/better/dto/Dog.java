@@ -1,4 +1,4 @@
-package com.debugmyself.dto;
+package com.better.dto;
 
 import lombok.Data;
 

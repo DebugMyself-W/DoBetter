@@ -1,8 +1,8 @@
-package com.debugmyself.dto;
+package com.better.dto;
 
-import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Array;
@@ -19,11 +19,14 @@ import java.util.Map;
  * <p>
  * 只有这个组件是容器中的组件，才能容器提供的@ConfigurationProperties功能；
  */
+@ApiModel("描述对象")
 @Component
 @ConfigurationProperties(value = "friend")
 public class Friend {
 
+    @ApiModelProperty(value = "name")
     private String name;
+    @ApiModelProperty(value = "age", required = true, example = "12")
     private String age;
     private Date birth;
     private Map<String, String> maps;
