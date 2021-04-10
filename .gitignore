@@ -1,5 +1,5 @@
-/target/
+*/target/*
 /.idea/
 *.iml
 rebel.xml
-*.log
+/logs/
