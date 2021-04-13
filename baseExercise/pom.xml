@@ -11,6 +11,7 @@
 
     <groupId>org.better</groupId>
     <artifactId>baseExercise</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
 
     <properties>

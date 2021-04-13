@@ -15,6 +15,7 @@
         <dependency>
             <groupId>org.better</groupId>
             <artifactId>baseExercise</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <!--springboot打包插件-->
