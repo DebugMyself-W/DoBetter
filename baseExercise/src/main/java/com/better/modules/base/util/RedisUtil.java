@@ -1,4 +1,4 @@
-package com.better.util;
+package com.better.modules.base.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * RedisIntegration
  * redis 工具类
  * @Author Scott
  *

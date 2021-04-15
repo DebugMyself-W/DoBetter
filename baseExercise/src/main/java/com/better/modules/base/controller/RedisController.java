@@ -1,6 +1,6 @@
-package com.better.controller;
+package com.better.modules.base.controller;
 
-import com.better.util.RedisUtil;
+import com.better.modules.base.util.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

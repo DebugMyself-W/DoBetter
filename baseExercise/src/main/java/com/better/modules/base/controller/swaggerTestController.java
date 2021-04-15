@@ -1,6 +1,6 @@
-package com.better.controller;
+package com.better.modules.base.controller;
 
-import com.better.dto.UserDTO;
+import com.better.modules.base.dto.UserDTO;
 import io.swagger.annotations.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

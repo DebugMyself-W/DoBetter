@@ -19,6 +19,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * SwaggerIntegration
+ */
 public class SwaggerConfiguration implements WebMvcConfigurer {
     private final SwaggerProperties swaggerProperties;
 

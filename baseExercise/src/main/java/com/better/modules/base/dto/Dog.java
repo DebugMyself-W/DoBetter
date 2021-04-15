@@ -1,4 +1,4 @@
-package com.better.dto;
+package com.better.modules.base.dto;
 
 import lombok.Data;
 

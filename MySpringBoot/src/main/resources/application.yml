@@ -1,47 +1,5 @@
 spring:
-  application:
-    name: springfox-swagger
   profiles:
     active: dev
-  redis:
-    database: 0
-    host: localhost
-    port:
-      password:
-      timeout: 1000ms
-      # 高版本springboot中使用jedis或者lettuce
-      lettuce:
-        pool:
-          # 连接池最大连接数（负值表示无限制）
-          max-active: 8
-          # 连接池最大阻塞等待时间（负值无限制)
-          max-wait: 5000ms
-          # 最大空闲链接数
-          max-idle: 8
-          # 最小空闲链接数
-          min-idle: 0
 server:
   port: 8080
-
-# ===== 自定义swagger配置 ===== #
-swagger:
-  enable: false
-  application-name: ${spring.application.name}
-  application-version: 1.0
-  application-description: springfox swagger 3.0整合
-  try-host: http://localhost:${server.port}
-
-
-#  #redis配置
-#  redis:
-#    database: 0
-#    host: 172.0.0.1
-#    lettuce:
-#      pool:
-#        max-active: 8   #最大连接数据库连接数,设 0 为没有限制
-#        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
-#        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
-#        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
-#      shutdown-timeout: 100ms
-#    password: ''
-#    port: 6379

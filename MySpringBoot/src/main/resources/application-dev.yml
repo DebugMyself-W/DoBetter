@@ -1,3 +1,33 @@
+spring:
+  # ===== SwaggerIntegration START===== #
+  application:
+    name: springfox-swagger
+  # ===== SwaggerIntegration END ===== #
+
+  #=== redisIntegration START====#
+  redis:
+    database: 0
+    host: localhost
+    port:
+      password:
+      timeout: 1000ms
+      lettuce: # 高版本springboot中使用jedis或者lettuce
+        pool:
+          max-active: 8 # 连接池最大连接数（负值表示无限制）
+          max-wait: 5000ms # 连接池最大阻塞等待时间（负值无限制)
+          max-idle: 8 # 最大空闲链接数
+          min-idle: 0 # 最小空闲链接数
+  #=== redisIntegration END====#
+
+  #=== 数据库连接 START===#
+  datasource:
+#    name: test   #数据库名
+    url: jdbc:mysql://172.23.112.101:3306/aes_dev?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root  #用户名
+    password: root  #密码
+    driver-class-name: com.mysql.cj.jdbc.Driver  #数据库链接驱动
+  #=== 数据库连接 END===#
+
 server:
   port: 8080
   tomcat:
@@ -10,5 +40,36 @@ server:
     mime-types: application/javascript,application/json,application/xml,text/html,text/xml,text/plain,text/css,image/*
 
 
-friend:
-  name: wang
+
+# ===== SwaggerIntegration START===== #
+swagger:
+  enable: false
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合
+  try-host: http://localhost:${server.port}
+# ===== SwaggerIntegration  END===== #
+
+#===MyBatisPlusIntegration  START===#
+mybatis-plus:
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 配置mybatis plus打印sql日志
+  mapper-locations: classpath*:com/better/modules/**/xml/*Mapper.xml # 扫描mapper.xml文件
+#  typeAliasesPackage: com.better.modules.entity # 扫描实体类
+  global-config: # 主键类型
+    id-type: 0 #0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    field-strategy: 0 #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    db-column-underline: true #驼峰下划线转换
+    table-underline: true # 默认数据库表下划线命名
+    refresh-mapper: true #刷新mapper 调试神器
+    #capital-mode: true #数据库大写下划线转换
+  configuration: #自定义SQL注入器
+    map-underscore-to-camel-case: true # mybatis plus下划线转驼峰
+    cache-enabled: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    call-setters-on-nulls: true  # 返回类型为Map,显示null对应的字段
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+      db-config.id-type: auto  # 配置全局默认主键规则
+      logic-delete-field: deleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+#===MyBatisPlusIntegration  END===#
