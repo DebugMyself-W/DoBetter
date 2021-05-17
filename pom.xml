@@ -129,6 +129,15 @@
             <version>1.4.0</version>
         </dependency>
 
+
+
+        <!--腾讯云短信包-->
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+
     </dependencies>
 
     <!--springboot打包插件-->
