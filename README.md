@@ -8,11 +8,14 @@
   2021-03-10 16:00       P14  
   2021-03-21 over  
 
-- [Springboot](整合系列)
+- [Springboot]()
   
-  ### SpringBoot整合系列 
-- 20210409 整合Swagger3.0 (SwaggerIntegration)
-- 20210411 整合Redis (RedisIntegration) 
-- 20210415 [整合MybatisPlus&MybatisPlusGenerator](https://www.cnblogs.com/chenyanbin/p/mybatis-plus.html) (MyBatisPlusIntegration) 
-  - GlobalConfig.setSwagger2(true);//自动配置swagger文档只在entity上实现，貌似不支持3.0
+  ### SpringBoot整合系列
+- 时间      内容（注意点）            关键字    
+- 20210409 Swagger3.0 (SwaggerIntegration)
+- 20210411 Redis (RedisIntegration) 
+- 20210415 [MybatisPlus&MybatisPlusGenerator](https://www.cnblogs.com/chenyanbin/p/mybatis-plus.html) (MyBatisPlusIntegration) 
+  - GlobalConfig.setSwagger2(true);//自动配置swagger文档只在entity上实现，貌似不支持3.0 todo
+- 20210422 shiro          (ShiroIntegration)
+- 
   
