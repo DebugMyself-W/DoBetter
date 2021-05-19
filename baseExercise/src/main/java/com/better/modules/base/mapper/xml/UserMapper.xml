@@ -6,7 +6,7 @@
         id, account, password, username
     </sql>
 
-    <select id="findByAccount" parameterType="Map" resultType="User">
+    <select id="findByAccount" parameterType="Map" resultType="com.better.modules.base.entity.User">
         select
         <include refid="base_column_list"/>
         from user

@@ -46,6 +46,11 @@ public class ShiroConfig {
         // 有先后顺序
         map.put("/login", "anon");      // 允许匿名访问
         map.put("/**", "authc");        // 进行身份认证后才能访问
+
+        map.put("/swagger-ui.html", "anon");
+        map.put("/swagger-ui.html", "anon");
+        map.put("/swagger**/**", "anon");
+
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         return shiroFilterFactoryBean;
     }
