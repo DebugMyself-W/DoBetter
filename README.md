@@ -16,6 +16,6 @@
 - 20210411 Redis (RedisIntegration) 
 - 20210415 [MybatisPlus&MybatisPlusGenerator](https://www.cnblogs.com/chenyanbin/p/mybatis-plus.html) (MyBatisPlusIntegration) 
   - GlobalConfig.setSwagger2(true);//自动配置swagger文档只在entity上实现，貌似不支持3.0 todo
-- 20210422 shiro          (ShiroIntegration)
+- 20210422 [shiro](juejin.cn/post/6844903887871148039)(ShiroIntegration)
 - 
   
