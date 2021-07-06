@@ -33,6 +33,7 @@ public class UserRealm extends AuthorizingRealm {
     private PermissionService permissionService;
 
     // 用户授权
+    @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         User user = (User) principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();

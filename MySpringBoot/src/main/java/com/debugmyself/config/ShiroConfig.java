@@ -45,11 +45,19 @@ public class ShiroConfig {
         Map<String, String> map = new LinkedHashMap<>();
         // 有先后顺序
         map.put("/login", "anon");      // 允许匿名访问
+
+
+        //放行Swagger2页面，需要放行这些
+        map.put("/swagger-ui.html","anon");
+        map.put("/swagger/**","anon");
+        map.put("/webjars/**", "anon");
+        map.put("/swagger-resources/**","anon");
+        map.put("/v2/**","anon");
+        map.put("/static/**", "anon");
+
         map.put("/**", "authc");        // 进行身份认证后才能访问
 
-        map.put("/swagger-ui.html", "anon");
-        map.put("/swagger-ui.html", "anon");
-        map.put("/swagger**/**", "anon");
+
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         return shiroFilterFactoryBean;
