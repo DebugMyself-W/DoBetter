@@ -26,11 +26,13 @@ public class IdentifyImageLatitudeLongitudeDemo {
 
         File file = new File("C:\\Users\\86151\\Desktop\\test");
 
-        File[] files = file.listFiles();
+       /* File[] files = file.listFiles();
         for (int i = 0; i < files.length; i++) {
             File file1 = files[i];
                 readImageInfo(file1);
-        }
+        }*/
+
+        convertGpsToLoaction(31.865553,120.543441);
     }
 
     /**
