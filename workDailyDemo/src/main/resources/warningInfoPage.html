@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>预警信息</title>
+<!--    <link rel="stylesheet" href="../warninginforesource/vant.min.css" />-->
+    <link rel="stylesheet" th:href="*{vant_min_css}" />
+    <link rel="stylesheet" th:href="*{style_css}" />
+  </head>
+  <body>
+    <div id="app">
+          <van-search
+            v-model="value"
+            show-action
+            placeholder="搜索提示文案"
+            @search="onSearch"
+          >
+            <template #action>
+<!--              <input id="token" th:value="*{token}" style="display: none"/>-->
+              <div class="search-btn" @click="onSearch">搜索</div>
+            </template>
+          </van-search>
+          <section class="card" v-for="(item,i) in wrnMessages" :key="item"  v-cloak>
+            <ul>
+              <li>
+                  <div class="lf">预警标题：</div>
+                  <div class="rg truncate">{{item.yjbt}}</div>
+              </li>
+              <li>
+                <div class="lf">预警时间：</div>
+                <div class="rg flex-center"><span>{{item.yjsj}}</span></div>
+            </li>
+            <li>
+                <div class="lf">预警内容：</div>
+                <div class="rg">{{item.yjnr}}</div>
+            </li>
+            <li @click="details(item.id)" class="more">
+                <span>查看更多</span>
+                <van-icon name="arrow" />
+            </li>
+            </ul>
+          </section>
+    </div>
+
+<!--    <script src="../warninginforesource/jquery.min.js"></script>-->
+<!--    <script src="../warninginforesource/vue.min.js"></script>-->
+<!--    <script src="../warninginforesource/vue-router.js"></script>-->
+<!--    <script src="../warninginforesource/vant.min.js"></script>-->
+<!--    <script src="../warninginforesource/debridge.js"></script>-->
+    <script th:src="*{jquery_min_js}"></script>
+    <script th:src="*{vue_min_js}"></script>
+    <script th:src="*{vue_router_js}"></script>
+    <script th:src="*{vant_min_js}"></script>
+    <script th:src="*{debridge_js}"></script>
+<!--    <script src="https://cdn.bootcdn.net/ajax/libs/dsbridge/3.1.4/dsbridge.js"></script>-->
+    <script>
+        var ctx = [[@{/}]];
+        (function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    wrnMessages: [],
+                    active: 0,
+                    value: "",
+                    token:""
+                },
+                created: function () {
+                    this.onSearch()
+                },
+                mounted() {
+                },
+                methods: {
+                    readIdCard() {
+                        dsBridge.register('idCardInfo', function (msg) {
+                            this.onSearch();
+                        })
+                    },
+                    onSearch(msg) {
+                        let that = this
+                        dsBridge.call('UserInfo', function (msg) {
+                            var dataJson=JSON.parse(msg);
+                            var yjbt=that.value;
+                            var token=dataJson.token;
+                            that.token=token;
+                            var qsrbh = dataJson.code;
+                            var data = {
+                                "yjbt": yjbt,
+                                "qsrbh": qsrbh,
+                            };
+                            $.ajax({
+                                url: "http://esb.ydjw.sc/service/api/83454ff94bba48a899465840c4f6a524/"+token,
+                                // url: "http://esb.ydjw.sc/service/api/83454ff94bba48a899465840c4f6a524/"+token+"/warningInfo",
+                                // url: ctx + "api/warningInfo",
+                                method: "post",
+                                async: false,
+                                dateType: 'json',
+                                contentType: 'application/json;charset=utf-8',
+                                data: JSON.stringify(data),
+                                success: function (res) {
+                                    that.wrnMessages = res.data;
+                                }
+                            })
+                        })
+                    },
+                    details(id) {
+                        // var url = ctx + 'api/warningInfoDetailsPage?id=' + id + "&token=" + this.token
+                        // var url = "http://esb.ydjw.sc/service/api/39b6214b8b2a4dd5bcd8263c68ef1580/" + this.token + "?id=" + id + "&token=" + this.token;
+                        var url = "http://esb.ydjw.sc/service/api/39b6214b8b2a4dd5bcd8263c68ef1580/" + this.token + "/warningInfoDetailsPage?id=" + id + "&token=" + this.token;
+                        window.open(url, '_self');
+                    }
+                },
+            })
+        })(document, window);
+    </script>
+  </body>
+</html>
